@@ -130,6 +130,8 @@ public class HBaseMasterClusterActionHandler extends HBaseClusterActionHandler {
     Properties config = new Properties();
     config.setProperty(HBaseConstants.PROP_HBASE_ZOOKEEPER_QUORUM, quorum);
     config.setProperty(HBaseConstants.PROP_HBASE_ZOOKEEPER_CLIENTPORT, "2181");
+    config.setProperty("hadoop.socks.server", "localhost:6666");
+    config.setProperty("hadoop.rpc.socket.factory.class.default", "org.apache.hadoop.net.SocksSocketFactory");
     return config;
   }
 
